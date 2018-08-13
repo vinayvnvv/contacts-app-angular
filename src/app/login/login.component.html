@@ -1,0 +1,28 @@
+<div class="login">
+	<div class="card">
+		<form class="form" [formGroup]="loginForm">
+		  <mat-form-field class="example-full-width">
+		    <input matInput placeholder="Email" value="Sushi" formControlName="email">
+		    <mat-error >
+		      Please enter a valid email address
+		    </mat-error>
+		  </mat-form-field>
+
+		  <mat-form-field class="example-full-width">
+		    <input type="password" matInput placeholder="Password" formControlName="password"/>
+		    <mat-error>
+		      Password is required!
+		    </mat-error>
+		  </mat-form-field>
+		  <div class="err" *ngIf="isInvalid">Email or Password is incorrect!</div>
+		  <button *ngIf="!isLoading" mat-raised-button color="primary" (click)="login(loginForm.valid)">Login</button>
+		  <mat-progress-spinner
+	        class="example-margin"
+	        diameter="30"
+	        color="primary"
+	        mode="indeterminate"
+	        *ngIf="isLoading">
+	     </mat-progress-spinner>
+		</form>
+	</div>
+</div>
